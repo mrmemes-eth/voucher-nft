@@ -1,66 +1,42 @@
-## Foundry
+## VoucherNFT
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+### Description
 
-Foundry consists of:
+This project is a smart contract implementation of a Voucher NFT (Non-Fungible Token). It is built using Solidity and utilizes the ERC721 and ERC165 standards.
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+### Features
 
-## Documentation
+- Minting: Users can mint Voucher NFTs by sending a specified amount of Ether to the contract.
+- Burning: Owners of Voucher NFTs can burn their tokens to receive the associated amount of Ether.
+- Transfer: Voucher NFTs can be transferred between different addresses.
 
-https://book.getfoundry.sh/
+### Usage
 
-## Usage
+To use this project, follow these steps:
 
-### Build
+1. Deploy the VoucherNFT contract to a compatible Ethereum network.
+2. Interact with the contract using the provided functions, such as `mint`, `burn`, and `transferFrom`.
 
-```shell
-$ forge build
-```
+### Deploying
 
-### Test
+This was a quick project for the Base developer quest. If you're keen to deploy it for that as well, here's my `forge` deploy invocation:
 
 ```shell
-$ forge test
+forge create src/VoucherNFT.sol:VoucherNFT \
+  -r https://goerli.base.org \
+  -c 84531 \
+  --verify \
+  --verifier-url https://api-goerli.basescan.org/api \
+  -e $BASESCAN_API_KEY \
+  -i 
 ```
 
-### Format
+That'll prompt you for the private key of your deployer interactively. GLHF!
 
-```shell
-$ forge fmt
-```
+### Contributing
 
-### Gas Snapshots
+Contributions are welcome! If you have any ideas, suggestions, or bug reports, please open an issue or submit a pull request.
 
-```shell
-$ forge snapshot
-```
+### License
 
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+This project is licensed under the MIT License.
